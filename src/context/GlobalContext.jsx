@@ -6,19 +6,36 @@ const GlobalContext = createContext()
 const GlobalProvider = ({ children }) => {
 
   const [projects, setProjects] = useState([])
+  const [project, setProject] = useState([])
+  const apiUrl = 'http://127.0.0.1:8000/api/project'
 
+  useEffect(() => {
+    axios.get(apiUrl)
+      .then(res => {
+        console.log("Data from backend:", res.data);
+        setProjects(res.data.data);
+      })
+      .catch(err => {
+        console.error("Axios Error:", err);
+      });
+  }, []);
 
-  axios.get(`${import.meta.env.VITE_API_URL}`)
-    .then(res =>
-      setProjects(res.data.data)
-    )
-    .catch(error =>
-      console.log(error)
-    )
+  const getProjectById = (id) => {
+    axios.get(`${apiUrl}/${id}`)
+      .then(res => {
+        setProject(res.data.data);
+      })
+      .catch(err => {
+        console.error("Error fetching project:", err);
+      });
+  }
 
   const value = {
     setProjects,
-    projects
+    projects,
+    getProjectById,
+    project,
+    setProject
   }
 
   return (

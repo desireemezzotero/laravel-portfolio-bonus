@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom"
 import DefaultLayout from "./layouts/DefaultLayout"
 import { GlobalProvider } from "./context/GlobalContext"
 import HomePage from "./pages/HomePage"
+import ProjectShow from "./pages/ProjectShow"
 
 function App() {
   return (
@@ -9,8 +10,9 @@ function App() {
       <GlobalProvider>
         <BrowserRouter>
           <Routes>
-            <Route Component={DefaultLayout}>
-              <Route path="/" Component={HomePage} />
+            <Route element={<DefaultLayout />}>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/project/:id" element={<ProjectShow />} />
             </Route>
           </Routes>
         </BrowserRouter >

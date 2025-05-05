@@ -1,17 +1,9 @@
-import { useGlobalContext } from "../context/GlobalContext";
-import { useEffect } from "react"
+import Table from "../components/Table";
 
 function HomePage() {
 
-  const { projects, setProjects } = useGlobalContext()
-  useEffect(setProjects, []);
-
   return (
-    <div>
-      {projects?.map(project =>
-        <h1 key={project.id}>{project.title}</h1>
-      )}
-    </div>
+    <Table />
   );
 
 }
