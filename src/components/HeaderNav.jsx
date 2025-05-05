@@ -1,4 +1,4 @@
-import React from 'react'
+import { Link } from "react-router-dom"
 
 function HeaderNav() {
   return (
@@ -6,9 +6,9 @@ function HeaderNav() {
       <nav className="bg-black border-gray-200 text-white">
         <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
 
-          <a href="{{route('index')}}" className="flex items-center space-x-3 rtl:space-x-reverse">
-            <img src="{{Vite::asset('resources/img/DM-logo.png')}}" className="h-8 rounded-full" alt="Flowbite Logo" />
-          </a>
+          <Link to="/" className="flex items-center space-x-3 rtl:space-x-reverse">
+            <img src="{{Vite::asset('resources/img/DM-logo.png')}}" className="h-8 rounded-full" alt="dm logo" />
+          </Link>
 
           <div className="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
 
@@ -17,17 +17,6 @@ function HeaderNav() {
               <img className="w-8 h-8 rounded-full" src="{{Vite::asset('resources/img/dmImgg.jpg')}}" alt="user photo" />
             </button>
 
-
-            <div className="z-50 hidden my-4 text-base list-none bg-black divide-y divide-gray-100 rounded-lg shadow-sm" id="user-dropdown">
-              <ul className="py-2" aria-labelledby="user-menu-button">
-                <li>
-                  <a href="{{route('login')}}" className="block px-4 py-2 text-sm text-white">Accedi</a>
-                </li>
-                <li>
-                  <a href="{{route('register')}}" className="block px-4 py-2 text-sm text-white">Registrati</a>
-                </li>
-              </ul>
-            </div>
 
             <button data-collapse-toggle="navbar-user" type="button" className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-user" aria-expanded="false">
               <span className="sr-only">Open main menu</span>
@@ -40,15 +29,15 @@ function HeaderNav() {
           <div className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-user">
             <ul className="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0">
               <li>
-                <a href="{{route('index')}}" className="block py-2 px-3 text-white rounded-sm md:bg-transparent" aria-current="page">Home</a>
+                <Link to="/}" className="block py-2 px-3 text-white rounded-sm md:bg-transparent" aria-current="page">Home</Link>
               </li>
 
               <li>
-                <a href="{{route('about')}}" className="block py-2 px-3 text-white rounded-sm md:bg-transparent" aria-current="page">About me</a>
+                <a href="/about" className="block py-2 px-3 text-white rounded-sm md:bg-transparent" aria-current="page">About me</a>
               </li>
 
               <li>
-                <a href="{{route('project.index')}}" className="block py-2 px-3 text-white rounded-sm md:bg-transparent" aria-current="page">Services</a>
+                <a href="/" className="block py-2 px-3 text-white rounded-sm md:bg-transparent" aria-current="page">Services</a>
               </li>
 
             </ul>
